@@ -1,0 +1,77 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std;
+
+struct Person {
+    string familyName;
+    string firstName;
+    string secondName;
+};
+
+struct PhoneNumber {
+    int countryNum;
+    int cityNum;
+    string Number;
+    int extNum;
+};
+
+class PhoneBook {
+protected:
+    vector<pair<Person, PhoneNumber>> PerPhon;
+public:
+    PhoneBook(ifstream f){
+        
+    }
+    
+    PhoneBook(Person p, PhoneNumber pn){
+        PerPhon.push_back(make_pair(p,pn));
+    }
+    
+    void SortByName(){
+        
+    }
+    
+    void SortByPhone(){
+        
+    }
+    
+    void GetPhoneNumber(string name){
+        for (auto &ph : PerPhon)
+            if (PerPhon.first->familyName == name)
+            then cout << PerPhon.first << " " << PerPhon.second;
+        ;
+              
+    }
+    
+    void ChangePhoneNumber(){
+        
+    }
+};
+
+ostream& operator<< (ostream & os, const Person &p) {
+    os << p.familyName << " " << p.firstName << " " << p.secondName;
+    return os;
+}
+
+ostream& operator<< (ostream & os, const PhoneNumber &p) {
+    os << "+" << p.countryNum << "(" << p.cityNum << ")" << p.Number << " " << p.extNum;
+    return os;
+}
+
+
+int main()
+{
+    Person p = {"Petrov", "Ivan"};
+    cout << p << endl;
+    PhoneNumber ph = {7,911,"1234567",12};
+    cout << ph << endl;
+    
+    PhoneBook pb1{p,ph};
+    
+//    if ("Petrov" < "Petrav") cout<<1;
+//    else cout<<2;
+
+    return 0;
+}
